@@ -358,7 +358,7 @@ class CreatePublicationTargetSSHWebserver(Interface):
                 lgr.error("Git version >= 2.4 needed to configure remote."
                           " Version detected on server: %s\nSkipping ..."
                           % git_version)
-                return False
+                # return False
 
         except CommandError as e:
             lgr.warning(
