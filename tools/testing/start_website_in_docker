@@ -35,7 +35,7 @@ sed -e "s,DL_DIST,$DL_DIST,g" \
 
 {
     # grep '^apt-get ' $topdir/../../README.md | sed -e 's|python-{|python{,3}-{|g'; \
-    echo "eatmydata apt-get install -q -y datalad python-pip python-virtualenv;"
+    echo "eatmydata apt-get install -q -y datalad python-dev python3-lxml python-pip python-virtualenv;"
     echo "eatmydata apt-get install -q -y libffi-dev libssl-dev;"
     # Install dependencies and remove system wide datalad
     echo "eatmydata dpkg --purge datalad python-datalad;"
@@ -78,7 +78,7 @@ if [ -z "$docker_id" ]; then
     #  Segmentation fault (core dumped)
     # yoh@8c3178bd7ea7:~/datalad$ echo $?
     # 139
-    docker exec $docker_id bash -c "cd datalad; pip install -e.[full]"
+    docker exec $docker_id bash -c "cd datalad; source venv/bin/activate; pip install -e.[full]"
 else
     echo "Using running container $docker_id"
 fi
